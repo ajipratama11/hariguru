@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Hari Guru Nasional</title>
+    <!-- Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts --><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Font Configuration */
+        .font-handwriting { font-family: 'Great Vibes', cursive; }
+        .font-serif { font-family: 'Lora', serif; }
+        .font-sans { font-family: 'Nunito', sans-serif; }
+
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Animation Keyframes */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulse-custom {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Utility Classes */
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse-custom 2s infinite; }
+        .animate-spin-slow { animation: spin-slow 8s linear infinite; }
+        
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cover & Content Logic */
+        #cover-screen {
+            transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+            z-index: 50;
+        }
+        .cover-hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Background Pattern */
+        .bg-pattern {
+            background-color: #fdfbf7;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a373' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* Music Icon Control */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border: 1px solid #e5e7eb;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            opacity: 0; 
+            transition: opacity 1s;
+        }
+        
+        /* Image responsiveness fix */
+        .char-img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 overflow-hidden" id="main-body">
+
+    <!-- COVER SECTION --><div id="cover-screen" class="fixed inset-0 w-full h-full bg-[#1a365d] text-white flex flex-col justify-center items-center text-center p-6 shadow-2xl">
+        <!-- Decoration Top --><div class="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
+            <svg class="relative block w-full h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+
+        <div class="z-10 animate-float relative">
+            <!-- KARAKTER 1: Di Cover --><div class="w-40 h-40 mx-auto mb-6 relative flex items-center justify-center">
+                 <div class="absolute inset-0 bg-yellow-400/20 rounded-full blur-xl animate-pulse-slow"></div>
+                 <!-- Link Gambar Karakter dari GitHub (Raw Content) --><img src="https://raw.githubusercontent.com/ajipratama11/hariguru/main/guru_blank.png" 
+                      alt="Karakter Guru" 
+                      class="char-img relative z-10 w-32 drop-shadow-2xl">
+            </div>
+            
+            <h3 class="font-sans text-lg tracking-widest uppercase mb-2 text-gray-300">Kepada Yth.</h3>
+            <h1 class="font-handwriting text-5xl md:text-7xl mb-6 text-white">Yesi Lintang Setyani S.Pd.</h1>
+            <p class="font-serif italic text-gray-300 mb-8 max-w-md mx-auto">
+                "Terima kasih telah menjadi lentera dalam kegelapan dan penunjuk jalan menuju masa depan."
+            </p>
+
+            <button onclick="openInvitation()" class="group relative px-8 py-3 bg-yellow-500 hover:bg-yellow-400 text-[#1a365d] font-bold rounded-full shadow-lg transition-all transform hover:scale-105 animate-pulse-slow">
+                <i class="fas fa-envelope-open-text mr-2"></i> Buka Ucapan
+            </button>
+        </div>
+
+        <!-- Decoration Bottom --><div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-full h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (Undangan Style) --><div class="max-w-md mx-auto bg-pattern min-h-screen shadow-2xl relative overflow-hidden">
+        
+        <!-- Sticky Header Decoration (Dihapus) --><!-- <div class="absolute top-0 left-0 w-full opacity-50 pointer-events-none">
+            <img src="https://img.freepik.com/free-vector/hand-drawn-floral-outline-background_23-2148998797.jpg?w=740&t=st=1700000000~exp=1700000000~hmac=xyz" 
+                 class="w-full h-auto mix-blend-multiply" alt="Decoration" 
+                 onerror="this.style.display='none'"> 
+        </div> --><!-- Hero Section --><section class="pt-20 pb-10 px-6 text-center reveal-element">
+            <!-- KARAKTER 2: Di Atas Judul --><!-- Link Gambar Karakter dari GitHub (Raw Content) --><img src="https://raw.githubusercontent.com/ajipratama11/hariguru/main/guru_blank.png" 
+                 alt="Karakter Guru" 
+                 class="char-img w-32 mx-auto mb-4 animate-float drop-shadow-md">
+                 
+            <h2 class="font-handwriting text-5xl text-[#1a365d] mb-2">Selamat Hari Guru</h2>
+            <p class="font-sans text-gray-500 uppercase tracking-widest text-sm mb-6">Nasional</p>
+            <div class="w-16 h-1 bg-yellow-500 mx-auto rounded-full mb-6"></div>
+            <p class="font-serif text-gray-700 leading-relaxed italic">
+                "Guru bukan hanya sekadar profesi, melainkan sebuah pengabdian tulus untuk mencerdaskan kehidupan bangsa."
+            </p>
+        </section>
+
+        <!-- Quote Card --><section class="px-4 mb-12 reveal-element">
+            <div class="bg-white p-8 rounded-tr-[3rem] rounded-bl-[3rem] shadow-lg border border-gray-100 text-center relative overflow-hidden">
+                <div class="absolute -top-4 -left-4 text-6xl text-gray-100"><i class="fas fa-quote-left"></i></div>
+                <h3 class="font-sans font-bold text-xl text-[#1a365d] mb-4">Pahlawan Tanpa Tanda Jasa</h3>
+                <p class="font-serif text-gray-600 text-sm leading-7 mb-4">
+                    Tak ada kata lelah dalam kamusmu. Setiap pagi kau berdiri di depan kelas, membawa harapan dan ilmu. Engkau membentuk karakter kami, dari yang tidak tahu menjadi tahu, dari yang ragu menjadi mampu.
+                </p>
+                <div class="flex justify-center text-yellow-400 gap-1 text-xs">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image / Philosophy Section --><section class="px-6 mb-12 reveal-element">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="w-full md:w-3/5 text-center md:text-left order-2 md:order-1">
+                    <h3 class="font-handwriting text-4xl text-[#1a365d] mb-4">Terima Kasih</h3>
+                    <p class="font-sans text-gray-700 text-sm leading-relaxed mb-4">
+                        Untuk setiap kesabaran, teguran menghadapi segala karakter Murid-muridmu.<br>
+                        Untuk setiap ilmu yang menerangi jalan para siswa.<br>
+                        Aku sendiri, Aji sebagai pasanganmu, sangat bangga denganmu sebagai seorang guru.<br>
+                        aku terbayang tenang, watu kita sudah diberi amanah oleh Allah untuk diberi keturunan nanti, aku yakin kamu akan menjadi ibu yang hebat bagi anak-anak kita kelak, karena aku sudah melihat bagaimana kamu mengajar dan membimbing murid-muridmu dengan sepenuh hati.
+                    </p>
+                    <p class="font-bold text-[#1a365d]">Jasamu Abadi.</p>
+                </div>
+                <!-- KARAKTER 3: Di Samping Teks --><div class="w-full md:w-2/5 flex justify-center order-1 md:order-2">
+                    <!-- Link Gambar Karakter dari GitHub (Raw Content) --><img src="https://raw.githubusercontent.com/ajipratama11/hariguru/main/guru_blank.png" 
+                         alt="Karakter Guru" 
+                         class="char-img w-40 animate-pulse-slow drop-shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Note / Footer --><section class="bg-[#1a365d] text-white py-12 px-6 text-center rounded-t-[3rem] relative reveal-element">
+            <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-yellow-500 w-16 h-16 rounded-full flex items-center justify-center border-4 border-[#fdfbf7] shadow-lg">
+                <i class="fas fa-heart text-white text-2xl animate-pulse"></i>
+            </div>
+            
+            <div class="mt-8">
+                <p class="font-serif italic opacity-80 mb-6">
+                    "Orang hebat bisa melahirkan beberapa karya bermutu, tapi guru yang bermutu dapat melahirkan ribuan orang hebat."
+                </p>
+                <div class="w-full h-px bg-gray-600 mb-6"></div>
+                <p class="font-sans text-sm mb-2">Maaf ya ucapannya terlambat. Maaf juga ya gajadi gamenya. Akhirnya aku buat ucapan ini (kodingnya nulis sendiri ini loh). Kata-katanya juga ada yang buat sendiri. semoga suka hadiahnya. Love U Yesi Lintang Setyani Binti Imam Hidayat</p>
+                <p class="font-sans text-sm mb-2">Tertanda,</p>
+                <h4 class="font-handwriting text-3xl text-yellow-400">Calon Tunanganmu</h4>
+                <p class="text-xs text-gray-400 mt-8">&copy; Edisi Ucapan Hari Guru buat Bu Yesi</p>
+            </div>
+        </section>
+
+        <div class="pb-20"></div> <!-- Spacer for bottom area --></div>
+
+    <!-- Visual Music Button (Floating) --><div id="music-btn" class="music-control text-[#1a365d]" onclick="toggleMusicVisual()">
+        <i class="fas fa-compact-disc text-2xl animate-spin-slow"></i>
+    </div>
+
+    <script>
+        // Setup Variables
+        const coverScreen = document.getElementById('cover-screen');
+        const mainBody = document.getElementById('main-body');
+        const musicBtn = document.getElementById('music-btn');
+        let isOpened = false;
+
+        // Function to Open Invitation
+        function openInvitation() {
+            if (isOpened) return;
+            isOpened = true;
+
+            // Animate Cover Up
+            coverScreen.classList.add('cover-hidden');
+            
+            // Allow Scrolling
+            mainBody.classList.remove('overflow-hidden');
+            mainBody.classList.add('overflow-auto');
+
+            // Show Music Button
+            setTimeout(() => {
+                musicBtn.style.opacity = '1';
+            }, 1000);
+
+            // Trigger animations for elements already in view
+            checkVisibility();
+        }
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Select all elements to reveal
+        document.querySelectorAll('.reveal-element').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Backup for standard scroll checking (compatibility)
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.reveal-element');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkVisibility);
+
+        // Music Toggle (Visual Only)
+        let isMusicPlaying = true;
+        function toggleMusicVisual() {
+            const icon = musicBtn.querySelector('i');
+            isMusicPlaying = !isMusicPlaying;
+            
+            if (isMusicPlaying) {
+                icon.classList.add('animate-spin-slow');
+                icon.classList.remove('text-gray-400');
+                icon.classList.add('text-[#1a365d]');
+                // Di sini Anda bisa menambahkan logika audio.play() jika ada file audio
+            } else {
+                icon.classList.remove('animate-spin-slow');
+                icon.classList.add('text-gray-400');
+                icon.classList.remove('text-[#1a365d]');
+                // Di sini Anda bisa menambahkan logika audio.pause()
+            }
+        }
+    </script>
+</body>
+</html>
